@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="Degordian_Workload_2.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Degordian_Workload_2.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Cimbalino.Toolkit.Converters"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <Binding Mode="OneWay"
+                 Path="LoginViewModel"
+                 Source="{StaticResource Locator}" />
+    </Page.DataContext>
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
+    <!--  LayoutRoot is the root grid where all page content is placed  -->
+    <Grid x:Name="LayoutRoot" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource HeaderHeigth}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  TitlePanel contains the name of the application and page title  -->
+        <StackPanel x:Name="TitlePanel" 
+                    Margin="{StaticResource HeaderMargin}"
+                    VerticalAlignment="Center" Grid.Row="0">
+            <TextBlock  FontSize="30" 
+                        Foreground="Black"
+                       Text="Login"/>
+        </StackPanel>
+
+        <!--  ContentPanel - place additional content here  -->
+        <Grid x:Name="ContentPanel"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" 
+                       FontSize="20"
+                       Foreground="Black"
+                       Text="Use your account"/>
+            
+            
+            <Button Grid.Row="2" Width="300"
+                    Margin="10"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="google"
+                    Background="{StaticResource GoogleRedBackgroundBrush}" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xf0d4;"
+                                   VerticalAlignment="Center"
+                                   FontFamily="/Fonts/fontawesome-webfont.ttf#FontAwesome" 
+                                   HorizontalAlignment="Left"/>
+                    <TextBlock Margin="10,0,0,0" Text="Google" 
+                           HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Grid Visibility="{Binding InProgress, Converter={StaticResource BooleanToVisibilityConverter}}"
+            Grid.Row="0"
+                   Grid.RowSpan="2">
+            <Rectangle 
+                   Fill="Black"
+                   Opacity="0.75" />
+            <TextBlock 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Auth..." />
+            <ProgressBar IsIndeterminate="True" IsEnabled="True" Margin="0,60,0,0"/>
+        </Grid>
+
+    </Grid>
+</Page>

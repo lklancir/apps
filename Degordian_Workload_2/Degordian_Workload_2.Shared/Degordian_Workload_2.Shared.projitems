@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0c45a0f5-e65b-457f-b85c-ff7d5f3b3476</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Degordian_Workload_2</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Cimbalino\ApplicationDataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DownloadSpreadsheet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\GoogleService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IGoogleService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\ILogManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\ISessionProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\ISessionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LogManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Model\ServiceResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Model\Session.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Model\Table.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Model\UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\SessionService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strings\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Styles\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>

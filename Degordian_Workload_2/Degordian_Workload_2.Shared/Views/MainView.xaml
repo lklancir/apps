@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="Degordian_Workload_2.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Degordian_Workload_2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Model="using:Degordian_Workload_2.Services.Model"
+    mc:Ignorable="d" 
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}">
+    
+    <Page.Resources>
+    <DataTemplate x:Key="StandardTripleLineItemTemplate">
+        <Grid Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            
+            <StackPanel Grid.Column="1" Margin="15,20,0,0">
+                <TextBlock Text="{Binding Month}" FontFamily="Global User Interface" TextLineBounds="Tight" Margin="0,0,0,10" />
+                <TextBlock Text="{Binding People}"  TextWrapping="Wrap" FontFamily="Global User Interface" />
+               
+                
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock 
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center" Margin="120,67,1142,687">
+			<Run Text="You are in Main View."/>
+        </TextBlock>
+       
+        
+        <Button x:Name="btrRefreshData"  
+			Margin="1237,52,0,678"
+			Content="Refresh" Click="btrRefreshData_Click"  />
+        
+        
+    </Grid>
+        
+</Page>
