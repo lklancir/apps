@@ -33,6 +33,7 @@ namespace Degordian_Workload_2.Views
         public MainView()
         {
             this.InitializeComponent();
+            
         }
 
         public ObservableDictionary DefaultViewModel
@@ -45,23 +46,16 @@ namespace Degordian_Workload_2.Views
         async private void btrRefreshData_Click(object sender, RoutedEventArgs e)
         {
 
-
             var tableData = await DataSource.GetTablesAsync();
             this.DefaultViewModel["Table"] = tableData;
 
-            //this.table.Clear();
-            //var jsonObject = await DownloadSpreadsheet.GetJson();
-            //for (int row = 0; row < jsonObject["rows"].Count(); row++)
-            //{
+            
+        }
 
-            //    SpreadSheetModel spreadSheetModel = new SpreadSheetModel();
-            //    spreadSheetModel.Day = int.Parse(jsonObject["rows"][row]["c"][0]["v"].ToString());
-            //    spreadSheetModel.Month = int.Parse(jsonObject["rows"][row]["c"][1]["v"].ToString());
-            //    spreadSheetModel.Year = int.Parse(jsonObject["rows"][row]["c"][2]["v"].ToString());
-            //    spreadSheetModel.People = jsonObject["rows"][row]["c"][4]["v"].ToString();
-
-            //    this.table.Add(spreadSheetModel);
-            //}
+        async private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var tableData = await DataSource.GetTablesAsync();
+            this.DefaultViewModel["Table"] = tableData;
         }
     }
 }

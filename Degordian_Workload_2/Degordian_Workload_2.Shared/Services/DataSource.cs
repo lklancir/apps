@@ -16,7 +16,7 @@ namespace Degordian_Workload_2.Services
     [DataContract]
     public class TablePayload
     {
-        [DataMember(Name="apartments")]
+        [DataMember(Name="tables")]
         public List<Table> Table { get; private set; }
     }
     public sealed class DataSource
