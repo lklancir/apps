@@ -9,50 +9,150 @@
     mc:Ignorable="d" 
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}" Loaded="Page_Loaded">
 
-    <Page.Resources>
-        <DataTemplate x:Key="StandardTripleLineItemTemplate">
-            <Grid Margin="0,0,0,0">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <Grid Width="1500">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="33" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="200" />
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="Black" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Padding" Value="5" />
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Style>
+                </Grid.Resources>
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                        <TextBlock VerticalAlignment="Center" TextAlignment="Right">
+                        <Run Text="Search" />
+                        <LineBreak />
+                        <Run Text="Data" />
+                        </TextBlock>
+                        <TextBox Width="100" />
+                        
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1">
+                    <TextBlock Text="Day" />
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1">
+                    <TextBlock Text="Month" />
+                </Border>
+                <Border Grid.Column="2" Grid.Row="1">
+                    <TextBlock Text="Year" />
+                </Border>
+                <Border Grid.Column="3" Grid.Row="1">
+                    <TextBlock Text="People" />
+                </Border>
+                <Border Grid.Column="4" Grid.Row="1">
+                    <TextBlock Text="Hours" />
+                </Border>
+                <Border Grid.Column="5" Grid.Row="1">
+                    <TextBlock Text="Department" />
+                </Border>
+                <Border Grid.Column="6" Grid.Row="1">
+                    <TextBlock Text="Client" />
+                </Border>
+                <Border Grid.Column="7" Grid.Row="1">
+                    <TextBlock Text="Project" />
+                </Border>
+                <Border Grid.Column="8" Grid.Row="1">
+                    <TextBlock Text="Task" />
+                </Border>
+                <Border Grid.Column="9" Grid.Row="1">
+                    <TextBlock Text="Account" />
+                </Border>
+                <Border Grid.Column="10" Grid.Row="1">
+                    <TextBlock Text="PM" />
+                </Border>
+                <Border Grid.Column="11" Grid.Row="1">
+                    <TextBlock Text="Comment" />
+                </Border>
 
-                <StackPanel Grid.Column="1" Margin="15,20,0,0">
-
-                    <TextBlock Text="{Binding Day}" FontFamily="Global User Interface" TextLineBounds="Tight" Margin="0,0,0,10" />
-                    <TextBlock Text="{Binding People}"  TextWrapping="Wrap" FontFamily="Global User Interface" />
-                    <TextBlock  FontSize="20" FontWeight="Bold">
-                        <Run Text="{Binding Month}" />
-                        <Run> stars</Run>
-                    </TextBlock>
-                </StackPanel>
             </Grid>
-        </DataTemplate>
-    </Page.Resources>
-
-    <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="153*"/>
-            <ColumnDefinition Width="530*"/>
-        </Grid.ColumnDefinitions>
-
-        <TextBlock 
-			HorizontalAlignment="Center"
-			VerticalAlignment="Center" Margin="120,67,82,687">
-			<Run Text="You are in Main View."/>
-        </TextBlock>
-
-
+            <ItemsControl ItemsSource="{Binding Table}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="400">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5,0" />
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Grid.Column="0" Text="{Binding Day}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Month}" />
+                            <TextBlock Grid.Column="2" Text="{Binding Year}" />
+                            <TextBlock Grid.Column="3" Text="{Binding People}" />
+                            <TextBlock Grid.Column="4" Text="{Binding Hours}" />
+                            <TextBlock Grid.Column="5" Text="{Binding Department}" />
+                            <TextBlock Grid.Column="6" Text="{Binding Klijent}" />
+                            <TextBlock Grid.Column="7" Text="{Binding Project}" />
+                            <TextBlock Grid.Column="8" Text="{Binding Task}" />
+                            <TextBlock Grid.Column="9" Text="{Binding AccountManager}" />
+                            <TextBlock Grid.Column="10" Text="{Binding ProjectManager}" />
+                            <TextBlock Grid.Column="11" Text="{Binding Comment}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Grid Width="1300">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="Black" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Padding" Value="5" />
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Style>
+                </Grid.Resources>
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12">
+                    <TextBlock Text="Showing 1 to 10 of 371" HorizontalAlignment="Right" />
+                </Border>
+            </Grid>
+            
+        </StackPanel>
         <Button x:Name="btrRefreshData"  
-			Margin="931,52,0,678"
-			Content="Refresh" Click="btrRefreshData_Click" Grid.Column="1"  />
-        <ListView ItemsSource="{Binding Table}" ItemTemplate="{StaticResource StandardTripleLineItemTemplate}" 
-            HorizontalAlignment="Left"
-            Height="414" Margin="153,80,0,0" 
-            VerticalAlignment="Top" Width="1038" Grid.ColumnSpan="2"/>
-
-
-
+			Margin="55,448,0,282"
+			Content="Refresh" Click="btrRefreshData_Click"  />
     </Grid>
 
 </Page>

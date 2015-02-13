@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
 
 namespace Degordian_Workload_2.Services.Model
 {
@@ -158,9 +159,7 @@ namespace Degordian_Workload_2.Services.Model
                 Session session = null;
                 switch (Provider)
                 {
-                    case Constants.FacebookProvider:
-                        session = await _facebookService.Finalize(args);
-                        break;
+
                     case Constants.GoogleProvider:
                         session = await _googleService.Finalize(args);
                         break;

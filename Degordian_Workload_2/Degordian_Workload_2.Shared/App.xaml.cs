@@ -40,9 +40,16 @@ namespace Degordian_Workload_2
         /// </summary>
         public App()
         {
+
+            
+
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+
         }
+
+
+
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

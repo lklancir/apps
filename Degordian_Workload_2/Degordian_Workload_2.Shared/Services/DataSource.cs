@@ -43,6 +43,12 @@ namespace Degordian_Workload_2.Services
             if (matches.Count() == 1) return matches.First();
             return null;
         }
+        //TODO
+
+        private bool IsJsonNull()
+        {
+            return true;
+        }
 
         private async Task GetDataAsync()
         {
@@ -54,10 +60,19 @@ namespace Degordian_Workload_2.Services
             {
 
                 Table table = new Table();
-                table.Day = int.Parse(jsonObject["rows"][row]["c"][0]["v"].ToString());
-                table.Month = int.Parse(jsonObject["rows"][row]["c"][1]["v"].ToString());
-                table.Year = int.Parse(jsonObject["rows"][row]["c"][2]["v"].ToString());
+                table.Day = jsonObject["rows"][row]["c"][0]["v"].ToString();
+                if (table.Day == null) table.Day = "E NECES"; 
+                table.Month = jsonObject["rows"][row]["c"][1]["v"].ToString();
+                table.Year = jsonObject["rows"][row]["c"][2]["v"].ToString();
                 table.People = jsonObject["rows"][row]["c"][4]["v"].ToString();
+                //table.Hours = jsonObject["rows"][row]["c"][5]["v"].ToString();
+                //table.Department = jsonObject["rows"][row]["c"][8]["v"].ToString();
+                ////table.Klijent = jsonObject["rows"][row]["c"][9]["v"].ToString();
+                //table.Project = jsonObject["rows"][row]["c"][10]["v"].ToString();
+                ////table.DeTask = jsonObject["rows"][row]["c"][11]["v"].ToString();
+                //table.AccountManager = jsonObject["rows"][row]["c"][12]["v"].ToString();
+                //table.ProjectManager = jsonObject["rows"][row]["c"][13]["v"].ToString();
+                //table.Comment = jsonObject["rows"][row]["c"][16]["v"].ToString();
 
                 this.Table.Add(table);
             }

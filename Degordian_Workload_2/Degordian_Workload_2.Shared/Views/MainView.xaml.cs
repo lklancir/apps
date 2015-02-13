@@ -45,10 +45,8 @@ namespace Degordian_Workload_2.Views
 
         async private void btrRefreshData_Click(object sender, RoutedEventArgs e)
         {
-
             var tableData = await DataSource.GetTablesAsync();
             this.DefaultViewModel["Table"] = tableData;
-
             
         }
 
