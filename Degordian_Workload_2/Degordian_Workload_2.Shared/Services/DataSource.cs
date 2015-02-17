@@ -8,6 +8,10 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Linq;
 using System.IO;
+using Windows.Data.Json;
+using Windows.UI.Popups;
+using System.Windows;
+
 
 namespace Degordian_Workload_2.Services
 {
@@ -45,8 +49,14 @@ namespace Degordian_Workload_2.Services
         }
         //TODO
 
-        private bool IsJsonNull()
+        private bool IsJsonNull(JsonObject jObject)
         {
+            if (jObject == null)
+            {
+                return false;
+
+            }
+
             return true;
         }
 
@@ -58,23 +68,41 @@ namespace Degordian_Workload_2.Services
             var jsonObject = await DownloadSpreadsheet.GetJson();
             for (int row = 0; row < jsonObject["rows"].Count(); row++)
             {
+                try
+                {
+                    Table table = new Table();
 
-                Table table = new Table();
-                table.Day = jsonObject["rows"][row]["c"][0]["v"].ToString();
-                if (table.Day == null) table.Day = "E NECES"; 
-                table.Month = jsonObject["rows"][row]["c"][1]["v"].ToString();
-                table.Year = jsonObject["rows"][row]["c"][2]["v"].ToString();
-                table.People = jsonObject["rows"][row]["c"][4]["v"].ToString();
-                //table.Hours = jsonObject["rows"][row]["c"][5]["v"].ToString();
-                //table.Department = jsonObject["rows"][row]["c"][8]["v"].ToString();
-                ////table.Klijent = jsonObject["rows"][row]["c"][9]["v"].ToString();
-                //table.Project = jsonObject["rows"][row]["c"][10]["v"].ToString();
-                ////table.DeTask = jsonObject["rows"][row]["c"][11]["v"].ToString();
-                //table.AccountManager = jsonObject["rows"][row]["c"][12]["v"].ToString();
-                //table.ProjectManager = jsonObject["rows"][row]["c"][13]["v"].ToString();
-                //table.Comment = jsonObject["rows"][row]["c"][16]["v"].ToString();
+                    table.Day = jsonObject["rows"][row]["c"][0]["f"].ToString();
 
-                this.Table.Add(table);
+                    table.Month = jsonObject["rows"][row]["c"][1]["v"].ToString();
+                    table.Year = jsonObject["rows"][row]["c"][2]["v"].ToString();
+                    table.People = jsonObject["rows"][row]["c"][4]["v"].ToString();
+                    table.Hours = jsonObject["rows"][row]["c"][5]["v"].ToString();
+                    table.Department = jsonObject["rows"][row]["c"][8]["v"].ToString();
+                    table.Klijent = jsonObject["rows"][row]["c"][9]["v"].ToString();
+                    table.Project = jsonObject["rows"][row]["c"][10]["v"].ToString();
+                    table.DeTask = jsonObject["rows"][row]["c"][11]["v"].ToString();
+                    table.AccountManager = jsonObject["rows"][row]["c"][12]["v"].ToString();
+                    table.ProjectManager = jsonObject["rows"][row]["c"][13]["v"].ToString();
+                    if (!jsonObject["rows"][row]["c"][16].HasValues)
+                    {
+                        table.Comment = "prazni string";
+                    }
+                    else
+                    {
+                        table.Comment = jsonObject["rows"][row]["c"][16]["v"].ToString();
+                    }
+                    
+
+                    this.Table.Add(table);
+
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+                
             }
             
         }

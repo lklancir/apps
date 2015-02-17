@@ -15,17 +15,17 @@
             <Grid Width="1500">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="33" />
+                    <ColumnDefinition Width="33" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="33" />
+                    <ColumnDefinition Width="110" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="220" />
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="200" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="400" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -94,19 +94,20 @@
             <ItemsControl ItemsSource="{Binding Table}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid Width="400">
+                        <Grid Width="1500">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33" />
+                                <ColumnDefinition Width="33" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="110" />
+                                <ColumnDefinition Width="33" />
+                                <ColumnDefinition Width="110" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="220" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="200" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="400" />
                             </Grid.ColumnDefinitions>
                             <Grid.Resources>
                                 <Style TargetType="TextBlock">
